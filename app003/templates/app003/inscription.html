@@ -1,0 +1,76 @@
+{% extends "app003/base.html" %}
+
+{% block content %}
+<div  style="margin-top: 80px;">
+    <div class="col-md-12">
+        <ul class="list-group" id="item_list">
+          <h3 class="text-center">Connexion</h3>
+          </ul> 
+    </div>
+    <center>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    {% if message.tags == 'error'%}
+                        <div class="tm-black-bg">
+                            <h2 class="tm-text-primary" style="color: red; font-size: 20px;">{{ message }}</h2>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </center>
+</div>
+<div>
+    <center>
+        <form method="POST"> 
+            {% csrf_token %}
+            <div>
+                <div class="form-group col-md-5">
+                <label for="inputEmail4">Nom</label>
+                <input type="text" name="firstname" class="form-control" placeholder="Votre Nom" required>
+                </div>
+            </div>
+            <div >
+                <div class="form-group col-md-5">
+                    <label for="inputPassword4">prenom</label>
+                    <input type="text" name="lastname"  class="form-control" placeholder="Votre Prenom" required>
+                </div>
+            </div>
+            <div >
+                <div class="form-group col-md-5">
+                    <label for="inputPassword4">Username</label>
+                    <input type="text" name="username"  class="form-control" laceholder="Votre Username" required>
+                </div>
+            </div>
+            <div >
+                <div class="form-group col-md-5">
+                    <label >Email</label>
+                    <input type="email" name="email"  class="form-control" laceholder="Votre Email" required>
+                </div>
+            </div>
+            <div >
+                <div class="form-group col-md-5">
+                    <label for="inputPassword4"> Mot De Passe </label>
+                    <input type="password" name="password"  class="form-control" required>
+                </div>
+            </div>
+            <div >
+                <div class="form-group col-md-5">
+                    <label for="inputPassword4"> Mot De Passe </label>
+                    <input type="password" name="confirmpwd"  class="form-control" required>
+                </div>
+            </div>
+            <center>
+                <div class="form-group col-md-3" style="display: flex; justify-content: space-between;">
+                    <a href="{% url 'connexion' %}" class="btn btn-primary">Connexion</a>
+                    <button type="submit" class="btn btn-success">Valider</button>
+                </div>
+            </center>
+        </form>
+    </center>
+</div>
+
+{% endblock %}
+{% block js %}
+{% endblock %}

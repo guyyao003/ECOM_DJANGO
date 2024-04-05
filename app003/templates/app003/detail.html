@@ -1,0 +1,32 @@
+{% extends 'app003/base.html' %}
+
+
+{% block content  %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div>
+          <img src="{{ product.image }}" width="400px" height="400px" alt="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="text-warning display-3">
+            {{ product.title }}
+        </div>
+        <div class = "text-danger">
+            Prix: FCFA {{ product.price }}
+        </div>
+        <div>
+            {{ product.description }}
+        </div>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'cart' product.id %}" class="btn ted btn-success">Acheter</a>
+        {% else %}
+            <a href="{% url 'connexion' %}" class="btn ted btn-success">Acheter</a>
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock %}

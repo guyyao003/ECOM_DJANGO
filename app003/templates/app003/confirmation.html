@@ -1,0 +1,11 @@
+{% extends "app003/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md12">
+        <h3 class="text-dark text-center badge-warning">Salut Mr/Mme {{ request.user.username }}</h3>
+        <h4 class="text-muted text-center">Merci de nous faire confiance Mr/Mme {{ request.user.username }}. Nous avons recu votre commande vous seriez livrez dans un delai de 24 heures</h4>
+    </div>
+</div>
+
+{% endblock %}
